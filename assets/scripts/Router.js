@@ -10,7 +10,6 @@
   *     It's accessible via window.location.hash and using them lets you
   *     easily modify the URL without refreshing the page or anything
   */
-
 export class Router {
   static routes = {};
 
@@ -38,6 +37,7 @@ export class Router {
      * router instance using the 'this' keyword. Substitute 'home' for the variable
      * page
      */
+     this[page] = pageFunc;
   }
 
   /**
@@ -65,5 +65,16 @@ export class Router {
      *     and URL + hash to history
      *  4. Finally, call the stored function for the given page
      */
+    if (this[page]){
+        this[page]();
+        if(!statePopped){
+            let hash = page == 'home'? ' ':(location.hash)+'#'+page;
+            history.pushState({page: page}, "", hash);
+        }
+    }
+    else {
+        console.log('function is not exist');
+    }
+    
   }
 }
