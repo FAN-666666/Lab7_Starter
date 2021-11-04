@@ -10,12 +10,11 @@ self.addEventListener('install', function (event) {
      * Create a function as outlined above
      */
     let urlsToCache = [
-        '/',
-        '/assets/components/RecipeCard.js',
-        '/assets/components/RecipeExpand.js',
-        '/assets/scripts/main.js',
-        '/assets/scripts/Router.js',
-        '/assets/styles/main.css'
+        'assets/components/RecipeCard.js',
+        'assets/components/RecipeExpand.js',
+        'assets/scripts/main.js',
+        'assets/scripts/Router.js',
+        'assets/styles/main.css'
     ]
     // Perform install steps
     event.waitUntil(
